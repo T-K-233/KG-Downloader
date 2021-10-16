@@ -4,6 +4,7 @@ import json
 import re
 import os
 import sys
+import html
 
 BASE_URL = {
     'SONG_BASE': 'https://node.kg.qq.com/play?s=%s',
@@ -52,14 +53,14 @@ def getSongInfo(shareid):
     return data
 
 
-def getWindowData(html):
+def getWindowData(htmlcontent):
     '''
     extract json data of the webpage
     @param html <str>: the raw html text to extract
     @return <dict>
     '''
     try:
-        windowData_text = re.search(r'(?<=window\.__DATA__ =).+(?=;\s\<\/script\>)', html).group()
+        windowData_text = html.unescape(re.search(r'(?<=window\.__DATA__ =).+(?=;\s\<\/script\>)', htmlcontent).group())
         windowData = json.loads(windowData_text)
         
     except json.decoder.JSONDecodeError:
