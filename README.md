@@ -4,12 +4,9 @@
 
 ## 用法
 
-在[此页面](https://github.com/T-K-233/KG-Downloader/releases/tag/1.0)下载 .exe 文件
-
-运行 `全民K歌下载器_cmd.exe`
-
-输入全民K歌网页网址 （形如 https://node.kg.qq.com/play?s=xxxxxx 或 https://node.kg.qq.com/personal?uid=xxxxxxxxx）
-
+```
+py .\scripts\kg-download.py "https://kg.qq.com/node/play?s=id-of-your-song-page"
+```
 
 ## 免责声明
 
